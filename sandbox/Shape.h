@@ -17,7 +17,7 @@ struct Shape
   virtual double area() const = 0;
   virtual double perimeter() const = 0;
   virtual const char* name() const = 0;
-  virtual int is_equal(const Shape* s) const = 0;
+  virtual bool is_equal(const Shape* s) const = 0;
 } C_API;
 
 static const double pi = 3.14159265359;
@@ -42,7 +42,7 @@ public:
     return "Circle";
   }
 
-  int is_equal(const Shape* s) const override
+  bool is_equal(const Shape* s) const override
   {
     if ( auto c = dynamic_cast<const Circle*>(s) )
       return c->radius_ == radius_;
@@ -51,11 +51,6 @@ public:
 
   Circle(double radius) : radius_(radius)
   {
-    if ( radius < 0 ) 
-    { 
-      std::string s = "Circle radius \"" + std::to_string(radius_) + "\" must be non-negative.";
-      throw std::runtime_error(s);
-    }
   }
 };
 
@@ -79,7 +74,7 @@ public:
     return "Square";
   }
 
-  int is_equal(const Shape* s) const override
+  bool is_equal(const Shape* s) const override
   {
     if ( auto sq = dynamic_cast<const Square*>(s) )
       return sq->side_ == side_;
@@ -88,11 +83,6 @@ public:
 
   Square(double side) : side_(side)
   {
-    if ( side_ <= 0.0 )
-    {
-      std::string s = "Square side \"" + std::to_string(side_) + "\" must be non-negative.";
-      throw std::runtime_error(s);
-    }
   }
 };
 
@@ -116,7 +106,7 @@ public:
     return "Pentagon";
   }
 
-  int is_equal(const Shape* s) const override
+  bool is_equal(const Shape* s) const override
   {
     if ( auto p = dynamic_cast<const Pentagon*>(s) )
       return p->side_ == side_;
@@ -125,10 +115,5 @@ public:
 
   Pentagon(double side) : side_(side)
   {
-    if ( side_ <= 0.0 )
-    {
-      std::string s = "Pentagon side \"" + std::to_string(side_) + "\" must be non-negative.";
-      throw std::runtime_error(s);
-    }
   }
 };
