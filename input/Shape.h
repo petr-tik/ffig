@@ -17,6 +17,7 @@ struct Shape
   virtual double area() const = 0;
   virtual double perimeter() const = 0;
   virtual const char* name() const = 0;
+  virtual int sides() const = 0;
   virtual int is_equal(const Shape* s) const = 0;
 } C_API;
 
@@ -41,6 +42,8 @@ public:
   {
     return "Circle";
   }
+
+  int sides() const override { return 1; }
 
   int is_equal(const Shape* s) const override
   {
@@ -79,6 +82,8 @@ public:
     return "Square";
   }
 
+  int sides() const override { return 4; }
+  
   int is_equal(const Shape* s) const override
   {
     if ( auto sq = dynamic_cast<const Square*>(s) )
@@ -116,6 +121,8 @@ public:
     return "Pentagon";
   }
 
+  int sides() const override { return 5; }
+  
   int is_equal(const Shape* s) const override
   {
     if ( auto p = dynamic_cast<const Pentagon*>(s) )

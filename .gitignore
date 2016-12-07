@@ -2,10 +2,6 @@ output/*
 *.pyc
 tests/bin
 tests/build
-sandbox/CircleTest
-sandbox/Shape_c.h 
-sandbox/*.o 
-sandbox/*.dylib
 demos/.ipynb_checkpoints/
 demos/CMakeCache.txt
 demos/CMakeFiles/

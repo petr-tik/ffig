@@ -1,0 +1,12 @@
+.gitignore
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+libMultiplier_c.dylib
+.ninja_deps
+.ninja_log
+TestInt.py
+build.ninja
+libInt_c.dylib
+rules.ninja
