@@ -13,6 +13,11 @@ public:
   {
   }
 
+  Int plus(Int i) const
+  {
+    return Int(value_ + i.value_);
+  }
+
   int value() const
   {
     return value_;

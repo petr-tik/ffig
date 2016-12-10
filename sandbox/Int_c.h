@@ -17,6 +17,8 @@ EXPORT void Int_dispose(const void* myInt);
 EXPORT int Int_Int_create(int value, const void** rv); 
 
 EXPORT int Int_value(const void* myInt, int* rv);
+
+EXPORT int Int_plus(const void* myInt, const void** anInt, const void** outInt);
  
 #ifdef __cplusplus
 }

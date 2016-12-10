@@ -57,3 +57,22 @@ int Int_value(const void* myInt, int* rv)
   return Int_RC_SUCCESS;
 }
  
+int Int_plus(const void* myInt, const void** anInt, const void** outInt)
+{
+  try
+  {
+    const Int& i = *reinterpret_cast<Int_ptr>(myInt);
+    const Int& j = *reinterpret_cast<Int_ptr>(anInt);
+
+    Int r = i.plus(j);
+
+    auto p = std::make_unique<const Int>(std::move(r));
+    *outInt = new std::shared_ptr<const Int>(p.release());
+  }
+  catch(const std::exception& e)
+  {
+    Int_error_ = e.what();
+    return Int_RC_FAIL;
+  }
+  return Int_RC_SUCCESS;
+}
