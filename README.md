@@ -18,7 +18,12 @@ encourage anyone looking to generate language bindings to look at SWIG.
 
 To run an interactive demo using Jupyter Notebook and Docker:
 
-`docker run -d -p 8888:8888 jbcoe/c-api`
+Build the container locally
+
+`
+docker build -t ffig .
+docker run --name ffig_cont -d -p 8888:8888 ffig
+`
 
 Navigate to <http://localhost:8888> in a browser.
 
