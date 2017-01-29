@@ -3,11 +3,10 @@ sudo: required
 services:
   - docker
 
-before_install:
+install:
   - docker build -t ffig_cont .
   - docker ps -a
-  - docker run ffig_cont /bin/bash -c "export PATH=$PATH:/home/c-api-user/.local/bin && cd ../ && ./run_tests.sh"
 
 
 script:
-  - ./run_tests.sh
+  - docker run ffig_cont /bin/bash -c "export PATH=$PATH:/home/c-api-user/.local/bin && cd ../ && ./run_tests.sh"
