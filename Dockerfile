@@ -23,5 +23,6 @@ EXPOSE 8888
 WORKDIR /home/c-api-user/demo/demos
 VOLUME /home/c-api-user/demo/demos
 COPY docker/run-server.sh .
+
 CMD ["./run-server.sh"]
 
