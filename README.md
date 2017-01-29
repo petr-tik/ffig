@@ -20,13 +20,12 @@ To run an interactive demo using Jupyter Notebook and Docker:
 
 Build the container locally
 
-`
+```
 docker build -t ffig .
 docker run --name ffig_cont -d -p 8888:8888 ffig
-`
+```
 
 Navigate to <http://localhost:8888> in a browser.
-
 
 # Setup (Linux and macOS)
 
