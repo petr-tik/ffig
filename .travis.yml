@@ -5,8 +5,6 @@ services:
 
 install:
   - docker build -t ffig_cont .
-  - docker ps -a
-
 
 script:
   - docker run ffig_cont /bin/bash -c "export PATH=$PATH:/home/c-api-user/.local/bin && cd ../ && ./run_tests.sh"
